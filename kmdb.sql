@@ -94,15 +94,45 @@ CREATE TABLE directors (
     name TEXT
 );
 
-CREATE TABLE cast (
+CREATE TABLE casts (
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
     movie_id INTEGER, 
-    actors_id INTEGER
+    actors_id INTEGER, 
+    role_name TEXT
 );
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO directors
+VALUES
+(1, 'Christopher Nolan');
+
+INSERT INTO movies
+VALUES
+(1, 'Batman Begins', 2005, 'PG-13', 1 ),
+(2, 'The Dark Knight', 2008, 'PG-13', 1), 
+(3, 'The Dark Knight Rises', 2012, 'PG-13', 1);
+
+INSERT INTO actors
+VALUES 
+(1, 'Christian Bale'),
+(2, 'Michael Caine'),
+(3, 'Liam Neeson'),
+(4, 'Katie Holmes'),
+(5, 'Gary Oldman'),
+(6, 'Heath Ledger'),
+(7, 'Aaron Eckhart'),
+(8, 'Maggie Gyllenhaal'),
+(9, 'Tom Hardy'),
+(10, 'Joseph Gordon-Levitt'),
+(11, 'Anne Hathaway');
+
+INSERT INTO casts
+VALUES
+(1, 1, 1, 'Bruce Wayne' );
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -111,6 +141,10 @@ CREATE TABLE cast (
 
 -- The SQL statement for the movies output
 -- TODO!
+
+SELECT movies.title, movies.year_release, movies.MPAA_rating, directors.name 
+FROM movies INNER JOIN directors 
+ON movies.director_id = directors.id;
 
 -- Prints a header for the cast output
 .print ""
