@@ -63,8 +63,9 @@
 -- The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
 -- Turns column mode on but headers off
-.mode column
+.mode column on
 .headers off
+.width 20 20 20
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
